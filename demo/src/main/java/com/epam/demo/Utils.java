@@ -1,5 +1,7 @@
 package com.epam.demo;
 
+import com.epam.utils.StringUtils;
+
 import java.util.List;
 
 import static com.epam.utils.StringUtils.isPositiveNumber;
@@ -10,12 +12,6 @@ public class Utils {
             return false;
         }
 
-        for (String number : args) {
-            if (!isPositiveNumber(number)) {
-                return false;
-            }
-        }
-
-        return true;
+        return args.stream().allMatch(StringUtils::isPositiveNumber);
     }
 }
